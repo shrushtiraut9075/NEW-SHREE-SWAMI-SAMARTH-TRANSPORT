@@ -1,0 +1,84 @@
+{
+  "entities": {
+    "LRRecord": {
+      "title": "LRRecord",
+      "description": "Lorry Receipt consignment record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "lrNumber": { "type": "string" },
+        "bookingDate": { "type": "string" },
+        "branchCode": { "type": "string" },
+        "consignorName": { "type": "string" },
+        "consigneeName": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "lrNumber", "bookingDate"]
+    },
+    "MRRecord": {
+      "title": "MRRecord",
+      "description": "Money receipt or Manifest trip sheet record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "mrNumber": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["id", "mrNumber"]
+    },
+    "LHSRecord": {
+      "title": "LHSRecord",
+      "description": "Lorry Hire Summary loading sheet",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "lhsNumber": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["id", "lhsNumber"]
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "Consignor or consignee business entity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    },
+    "Branch": {
+      "title": "Branch",
+      "description": "Transport hub or branch",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "code": { "type": "string" }
+      },
+      "required": ["id", "name", "code"]
+    }
+  },
+  "firestore": {
+    "/lrs/{lrId}": {
+      "schema": "LRRecord",
+      "description": "Collection of Lorry Receipts"
+    },
+    "/mrs/{mrId}": {
+      "schema": "MRRecord",
+      "description": "Collection of Manifests"
+    },
+    "/lhs/{lhsId}": {
+      "schema": "LHSRecord",
+      "description": "Collection of LHS loading sheets"
+    },
+    "/customers/{customerId}": {
+      "schema": "Customer",
+      "description": "Collection of registered customers"
+    },
+    "/branches/{branchId}": {
+      "schema": "Branch",
+      "description": "Collection of transport branches"
+    }
+  }
+}

@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #0f172a;
+    background-color: #f8fafc;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  #root {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* A4 Print Stylesheet - Mobile & Desktop Print Fit */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 2.5mm 3.5mm;
+  }
+
+  *, *:before, *:after {
+    box-sizing: border-box !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide everything except the dedicated print container */
+  .no-print,
+  nav,
+  aside,
+  header,
+  footer,
+  button,
+  .sidebar,
+  .navbar,
+  .modal-overlay-backdrop {
+    display: none !important;
+  }
+
+  .print-only-container {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 3-in-1 Single A4 Sheet Print Rules - Perfectly sized for mobile and laser printers */
+  .sheet-3in1-a4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 279mm !important;
+    max-height: 281mm !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+    padding: 0.5mm !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+
+  .slip-1third {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 89mm !important;
+    max-height: 89mm !important;
+    overflow: hidden !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    box-sizing: border-box !important;
+  }
+
+  .page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+}
+
+/* Road & Truck Animations - Dashboard Only */
+@keyframes roadLaneMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -120px 0;
+  }
+}
+
+@keyframes roadLaneMoveVertical {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 80px;
+  }
+}
+
+@keyframes truckDriveAcross {
+  0% {
+    transform: translateX(-140%);
+  }
+  100% {
+    transform: translateX(110vw);
+  }
+}
+
+@keyframes truckBounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes spinWheel {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes exhaustSmoke {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.6) translate(0, 0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1) translate(-15px, -6px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6) translate(-30px, -12px);
+  }
+}
+
+@keyframes sceneryMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -400px 0;
+  }
+}
+
+.animate-road-move {
+  animation: roadLaneMove 0.8s linear infinite;
+}
+
+.animate-road-move-fast {
+  animation: roadLaneMove 0.4s linear infinite;
+}
+
+.animate-truck-bounce {
+  animation: truckBounce 0.35s ease-in-out infinite;
+}
+
+.animate-wheel-spin {
+  animation: spinWheel 0.45s linear infinite;
+}
+
+.animate-exhaust {
+  animation: exhaustSmoke 1.2s ease-out infinite;
+}
+
+.animate-scenery-move {
+  animation: sceneryMove 12s linear infinite;
+}
+

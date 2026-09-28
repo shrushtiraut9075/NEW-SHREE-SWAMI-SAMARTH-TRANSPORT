@@ -1,0 +1,26 @@
+{
+  "id": "/",
+  "name": "NEW SHREE SWAMI SAMARTH TRANSPORT",
+  "short_name": "SS Transport",
+  "description": "Professional Transport Management System - Chakan, Pune",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#1e3a8a",
+  "icons": [
+    {
+      "src": "/company_logo.jpg",
+      "sizes": "192x192 512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/company_logo.jpg",
+      "sizes": "192x192 512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    }
+  ]
+}
